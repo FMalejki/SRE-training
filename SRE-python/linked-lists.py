@@ -16,6 +16,9 @@ def print_elements(pointer):
         print(pointer.value)
 
 def delete_element(p, data):
+    #first case when [0] element is the thing to delete
+    if p.value == data:
+        
     while p.next is not None:
         print("aaa")
 
