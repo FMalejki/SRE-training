@@ -1,0 +1,19 @@
+FROM node:14
+
+WORKDIR /home/malejki/SRE-internship-preparations/SRE-monitoring/backend
+
+COPY ./backend/package*.json ./
+
+RUN pwd
+
+RUN ls
+
+COPY ./backend/server.js ./
+
+COPY ./frontend ./frontend
+
+RUN npm install
+
+EXPOSE 3030
+
+CMD ["node", "server.js"]

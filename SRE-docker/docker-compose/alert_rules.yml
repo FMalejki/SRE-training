@@ -1,0 +1,11 @@
+groups:
+  - name: test-alert
+    rules:
+      - alert: TEST
+        expr: go_sched_latencies_seconds_count > 200
+        for: 2s
+        labels:
+          severity: critical
+        annotations:
+          summary: "High go_sched_latencies_seconds_count detected"
+          description: "The value of go_sched_latencies_seconds_count has exceeded 2000."

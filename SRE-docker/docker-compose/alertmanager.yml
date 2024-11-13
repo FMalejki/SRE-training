@@ -1,0 +1,17 @@
+global:
+  resolve_timeout: 10s
+
+route:
+  receiver: 'stardata-telegram'
+  routes:
+    - match:
+        severity: 'test-telegram'
+      receiver: 'stardata-telegram'
+
+receivers:
+- name: 'stardata-telegram'
+  telegram_configs:
+  - bot_token: '7652788135:AAFb5kyxNE8TOR-pSngU22vPWqYZxFkAFJY'
+    api_url: https://api.telegram.org
+    chat_id: 5283469167
+    parse_mode: ''

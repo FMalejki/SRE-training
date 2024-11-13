@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: express
+  labels:
+    app: express
+spec:
+  replicas: 1 #can be more but for what really
+  selector:
+    matchLabels:
+      app: express
+  template:
+    metadata:
+      labels:
+        app: express
+    spec:
+      containers:
+      - name: express
+        image: fmalejki/simple-express-app:v1
+        ports:
+        - containerPort: 3030
+---
+#service
+apiVersion: v1
+kind: Service
+metadata:
+  name: express-service
+spec:
+  type: NodePort
+  selector:
+    name: express
+  ports:
+    - protocol: TCP
+      port: 3030
+      targetPort: 3030
+      nodePort: 31111
